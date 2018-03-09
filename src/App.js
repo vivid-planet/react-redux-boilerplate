@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Provider } from 'react-redux';
+import { Router, Route } from 'react-router';
+import RouteHome from './components/routes/RouteHome';
 
 class App extends Component {
   render() {
+    const {store, history} = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route path="/" component={RouteHome} />
+          <Route path="/page2" component={()=><h1>page2</h1>} />
+        </Router>
+      </Provider>
     );
   }
 }
