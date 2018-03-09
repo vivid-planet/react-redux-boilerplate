@@ -7,7 +7,6 @@ import { component as componentCss } from './App.scss';
 class App extends Component {
   render() {
     const { store, history } = this.props;
-    console.log(componentCss);
     return (
       <div className={componentCss}>
         <Provider store={store}>
